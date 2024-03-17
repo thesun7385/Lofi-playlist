@@ -1,0 +1,66 @@
+* {
+  font-family: "Roboto Condensed", sans-serif;
+  /* font-optical-sizing: auto;
+  font-weight: <weight>; */
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* css variables */
+:root {
+    --white: #ffffff;
+    --lightshadow: rgba(0, 0, 0, 0.15);
+    --lightblack: #515C6F;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height:100vh ;
+}
+
+.wrapper{
+    width:380px;
+    border-radius: 15px;
+    padding: 25px 30px;
+    background: var(--white); 
+    /***Make a shadow effect */
+    box-shadow: 0px 6px 15px var(--lightshadow) 
+}
+
+.top-bar{
+    display: flex;
+    align-items: center;    
+    justify-content: space-between; 
+}
+
+.top-bar i{
+    font-size: 30px;
+    color: var(--lightblack);
+}
+
+.top-bar span{
+    font-size: 18px;
+    color: var(--lightblack);
+}
+
+/* 
+Todo: Change background according to song playing */
+.img-area {
+    height:256px;
+    width:100%;
+    margin-top:25px;
+    border-radius: 15px;
+    overflow: hidden;
+     /***Make a shadow effect */
+    box-shadow:0px 6px 12px var(--lightshadow);
+}
+
+.img-area img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
