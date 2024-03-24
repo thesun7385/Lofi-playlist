@@ -13,6 +13,7 @@
     --white: #ffffff;
     --lightshadow: rgba(0, 0, 0, 0.15);
     --lightblack: #515C6F;
+    --darkwhite: #cecaca;
 }
 
 body{
@@ -25,16 +26,24 @@ body{
 .wrapper{
     width:380px;
     border-radius: 15px;
+    overflow: hidden;
+    position: relative;
     padding: 25px 30px;
     background: var(--white); 
     /***Make a shadow effect */
     box-shadow: 0px 6px 15px var(--lightshadow) 
 }
 
-.top-bar{
+.top-bar, .progress-area .timer, 
+.controls, .music-list .header, .music-list li{
     display: flex;
     align-items: center;    
     justify-content: space-between; 
+}
+
+
+.music-list .header #close {
+    cursor: pointer;
 }
 
 .top-bar i{
@@ -63,4 +72,222 @@ Todo: Change background according to song playing */
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.song-details {
+    text-align: center;
+    margin: 30px 0;
+
+    color: var(--lightblack);
+}
+
+
+.song-details .name{
+    font-size: 21px;
+}
+
+.song-details .artist{
+    opacity:0.9;
+    font-size: 18px;
+}
+
+.progress-area {
+    height: 6px;
+    width: 100%;
+    background: #f0f0f0 ;
+    border-radius: 50px;
+    cursor: pointer
+}
+
+.progress-area .progress-bar{
+    height: inherit;   
+    width: 0%;
+    position: relative;
+    border-radius: inherit;
+    background: linear-gradient(90deg,#bdc3c7,#2c3e50)
+}
+
+.progress-bar:before {
+    content:"";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: #000;
+    border-radius: inherit;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    background: inherit;
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.progress-area:hover .progress-bar:before{
+    opacity:1;
+}
+
+
+.progress-area .timer{
+    margin-top:2px;
+}
+
+.timer span{
+    font-size:13px;
+    color: var(--lightblack);
+}
+
+.controls{
+    margin: 40px 0 5px 0;
+}
+
+.controls i{
+    font-size:28px;
+    user-select: none;
+    background: linear-gradient(#203A43,#2C5364);
+    background-clip: text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent; 
+    cursor: pointer
+}
+
+.controls .play-pause i{
+    font-size: 35px;
+}
+/* 
+select element 2, and 4 on the icon panel   */
+.controls i:nth-child(2),
+.controls i:nth-child(4){
+    font-size: 43px;
+}
+
+.controls #prev{
+    margin-right: -13px;
+}
+
+.controls #next{
+    margin-right: -13px;
+}
+
+.controls .play-pause{
+    height: 54px;
+    width: 54px;
+    background: linear-gradient(var(--white) 0%, var(--darkwhite));
+    border-radius: 50%;
+    box-shadow:0px 3px 10px var(--lightshadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+
+/* add small circle to the play-pause button  */
+.play-pause::before{
+    content: '';
+    position: absolute;
+    height:43px;
+    width: 43px;
+    border-radius: inherit;
+    background: linear-gradient(#98c2d0,#5896b0);
+
+}
+
+.play-pause i{
+    height:43px;
+    width: 43px;
+    line-height: 43px;
+    text-align: center;
+    border-radius: inherit;
+    position: relative;
+    background: inherit ;
+    background-clip: text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent; 
+}
+
+.music-list{
+    position: absolute;
+    left:0;
+    /* height: 25%; */
+    width: 100%;
+    bottom: -55%;
+    opacity: 0;
+    pointer-events: none;
+    opacity: 0;
+    border-radius: 15px;
+    padding: 15px 30px;
+    background: var(--white);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.14s ease-out;
+  }
+
+/* Use this class to show the music list */
+/* Toggle .show when users click on the icon */
+.music-list.show{
+    bottom: 0%;
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer
+}
+  
+.music-list .header .row{
+    display:flex;
+    align-items: center;
+    font-size:19px;
+    color:var(--lightblack);
+}
+
+.header .row i{
+    cursor: default;
+}
+
+.header .row span{
+    margin-left: 5px;
+}
+
+
+.header #close{
+    font-size: 22px;
+    color: var(--lightblack);
+}
+
+.music-list ul{
+    margin:10px 0;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.music-list ul::-webkit-scrollbar{
+    width: 0px;
+}
+
+
+.music-list ul li{
+    list-style: none;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    color: var(--lightblack);
+    border-bottom: 1px solid #f0f0f0;
+
+}
+
+.music-list ul li:last-child{
+    border-bottom: 0px;
+}
+
+.music-list ul li .row span{
+    font-size: 17px;
+}
+
+ul li .row p{
+    opacity: 0.9;
+}
+
+ul li .audio-duration{
+    font-size: 16px;
+}
+
+ul li.playing{
+color: #3e83d8;
+pointer-events: none;
 }
