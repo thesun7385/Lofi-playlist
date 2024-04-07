@@ -20,6 +20,15 @@ var hideMusicBtn = musicList.querySelector("#close"); // select wrapper, music-l
 // Shuffle song when the page is loaded
 var musicIndex = Math.floor(Math.random() * allMusic.length + 1);
 
+// Toogle off the pulse effect
+document.querySelector(".play-pause").addEventListener("click", function () {
+  var playPauseButton = this;
+  playPauseButton.classList.add("pulse-animation");
+  setTimeout(function () {
+    playPauseButton.classList.remove("pulse-animation");
+  }, 1000); // Adjust the time to match the duration of the animation (2s in this case)
+});
+
 // Event listener to load the music when the window is loaded
 window.addEventListener("load", () => {
   // Load a music
@@ -244,6 +253,15 @@ function loadMusic(indexNum) {
   musicArtist.innerText = allMusic[indexNum - 1].artist;
   musicImg.src = `assets/img/${allMusic[indexNum - 1].img}.jpg`;
   mainAudio.src = `assets/songs/${allMusic[indexNum - 1].img}.mp3`;
+
+  // Update background images
+  updateBackground(allMusic[indexNum - 1].img);
+}
+
+// Function background image
+function updateBackground(imgName) {
+  const imageUrl = `url(assets/img/${imgName}.jpg)`;
+  document.body.style.backgroundImage = imageUrl;
 }
 
 // Function to play the next music

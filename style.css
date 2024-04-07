@@ -1,7 +1,5 @@
 * {
   font-family: "Roboto Condensed", sans-serif;
-  /* font-optical-sizing: auto;
-  font-weight: <weight>; */
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -10,284 +8,518 @@
 
 /* css variables */
 :root {
-    --white: #ffffff;
-    --lightshadow: rgba(0, 0, 0, 0.15);
-    --lightblack: #515C6F;
-    --darkwhite: #cecaca;
+  --white: #ffffff;
+  --lightshadow: rgba(0, 0, 0, 0.15);
+  --lightblack: #515c6f;
+  --darkwhite: #cecaca;
+  --gray: #f5f5f5;
 }
 
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height:100vh ;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  /* background-image: url("assets/img/music-2.jpg"); */
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
 
-.wrapper{
-    width:380px;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    padding: 25px 30px;
-    background: var(--white); 
-    /***Make a shadow effect */
-    box-shadow: 0px 6px 15px var(--lightshadow) 
+.wrapper {
+  width: 100vw; 
+  height: 90vh; /* Set height */
+  max-width: 1280px; /* Set maximum width */
+  margin: 10px auto; /* Center the wrapper */
+  padding: 0 20px; /* Add horizontal padding */
+  position: relative; /* Ensure position relative for absolute positioning */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  /* background: gray; */
 }
 
-.top-bar, .progress-area .timer, 
-.controls, .music-list .header, .music-list li{
-    display: flex;
-    align-items: center;    
-    justify-content: space-between; 
+.container {
+  justify-self: center;
 }
 
+.top-bar,
+.progress-area .timer,
+.controls,
+.music-list .header,
+.music-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
 
 .music-list .header #close {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.top-bar i{
-    font-size: 30px;
-    color: var(--lightblack);
+.top-bar i {
+  font-size: 30px;
+  color: var(--gray);
+  cursor: pointer;
 }
 
-.top-bar span{
-    font-size: 18px;
-    color: var(--lightblack);
+.top-bar span {
+  font-size: 18px;
+  color: var(--gray);
 }
 
 /* 
-Todo: Change background according to song playing */
+  Todo: Change background according to song playing */
 .img-area {
-    height:256px;
-    width:100%;
-    margin-top:25px;
-    border-radius: 15px;
-    overflow: hidden;
-     /***Make a shadow effect */
-    box-shadow:0px 6px 12px var(--lightshadow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+
 }
 
-.img-area img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.img-area img {
+  height: 320px;
+  width: 320px;
+  object-fit: cover;
+  align-items: center;
+  box-shadow: 0px 5px 20px var(--lightshadow);
+  border-radius: 20px;
+
 }
 
 .song-details {
-    text-align: center;
-    margin: 30px 0;
-
-    color: var(--lightblack);
+  text-align: center;
+  margin: 20px;
+  color: var(--gray);
 }
 
-
-.song-details .name{
-    font-size: 21px;
+.song-details .name {
+  font-size: 25px;
 }
 
-.song-details .artist{
-    opacity:0.9;
-    font-size: 18px;
+.song-details .artist {
+  opacity: 0.9;
+  font-size: 18px;
 }
 
 .progress-area {
-    height: 6px;
-    width: 100%;
-    background: #f0f0f0 ;
-    border-radius: 50px;
-    cursor: pointer
+  height: 6px;
+  width: 100%;
+  background: #bdbdbd;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
-.progress-area .progress-bar{
-    height: inherit;   
-    width: 0%;
-    position: relative;
-    border-radius: inherit;
-    background: linear-gradient(90deg,#bdc3c7,#2c3e50)
+.progress-area .progress-bar {
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: #616161;
 }
 
 .progress-bar:before {
-    content:"";
-    position: absolute;
-    height: 12px;
-    width: 12px;
-    background: #000;
-    border-radius: inherit;
-    top: 50%;
-    right: -5px;
-    transform: translateY(-50%);
-    background: inherit;
-    opacity: 0;
-    transition: 0.2s ease;
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: inherit;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  background: inherit;
+  opacity: 0;
+  transition: 0.2s ease;
 }
 
-.progress-area:hover .progress-bar:before{
-    opacity:1;
+.progress-bar:before {
+  opacity: 1;
+}
+
+.progress-area .timer {
+  margin-top: 2px;
+}
+
+.timer span {
+  font-size: 13px;
+  margin-top: 5px;
+  color: var(--gray);
+}
+
+.controls {
+  margin: 20px 0; /* Decrease margin for smaller screens */
+}
+
+.controls i {
+  font-size: 28px;
+  user-select: none;
+  background: var(--gray);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }
 
 
-.progress-area .timer{
-    margin-top:2px;
-}
-
-.timer span{
-    font-size:13px;
-    color: var(--lightblack);
-}
-
-.controls{
-    margin: 40px 0 5px 0;
-}
-
-.controls i{
-    font-size:28px;
-    user-select: none;
-    background: linear-gradient(#203A43,#2C5364);
-    background-clip: text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent; 
-    cursor: pointer
-}
-
-.controls .play-pause i{
-    font-size: 35px;
-}
 /* 
-select element 2, and 4 on the icon panel   */
+  select element 2, and 4 on the icon panel   */
 .controls i:nth-child(2),
-.controls i:nth-child(4){
-    font-size: 43px;
+.controls i:nth-child(4) {
+  font-size: 40px;
+  margin-right: -13px;
 }
 
-.controls #prev{
-    margin-right: -13px;
+#more-music:hover{
+  text-shadow:  var(--gray) 1px 0 30px;
 }
 
-.controls #next{
-    margin-right: -13px;
-}
-
-.controls .play-pause{
-    height: 54px;
-    width: 54px;
-    background: linear-gradient(var(--white) 0%, var(--darkwhite));
-    border-radius: 50%;
-    box-shadow:0px 3px 10px var(--lightshadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
+.controls i:nth-child(1):hover,.controls i:nth-child(2):hover,
+.controls i:nth-child(4):hover, .controls i:nth-child(5):hover {
+  text-shadow:  var(--gray) 1px 0 30px;
 }
 
 
-/* add small circle to the play-pause button  */
-.play-pause::before{
-    content: '';
-    position: absolute;
-    height:43px;
-    width: 43px;
-    border-radius: inherit;
-    background: linear-gradient(#98c2d0,#5896b0);
-
+.controls #favorite {
+  margin-right: -10px;
+  height: 30px;
+  width: 30px;
 }
 
-.play-pause i{
-    height:43px;
-    width: 43px;
-    line-height: 43px;
-    text-align: center;
-    border-radius: inherit;
-    position: relative;
-    background: inherit ;
-    background-clip: text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent; 
+
+
+/* New play button effect */
+.play-pause {
+  width: 70px;
+  height: 70px;
+  background: radial-gradient( #546E7A 60%, var(--gray) 62%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.music-list{
-    position: absolute;
-    left:0;
-    /* height: 25%; */
-    width: 100%;
-    bottom: -55%;
-    opacity: 0;
-    pointer-events: none;
-    opacity: 0;
-    border-radius: 15px;
-    padding: 15px 30px;
-    background: var(--white);
-    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.14s ease-out;
+.play-pause i {
+  font-size: 50px;
+  background: var(--gray);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.play-pause:hover {
+  box-shadow: 0px 0px 20px 1px  var(--gray);
+;
+}
+
+
+.play-pause.pulse-animation::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  animation: pulsate1 2s infinite;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, .75);
+  top: -30%;
+  left: -30%;
+  background: rgba(198, 16, 0, 0);
+}
+
+
+@keyframes pulsate1 {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
   }
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+    box-shadow: none;
+  }
+}
+
+
+/* 
+Old play button effect */
+/* .play-pause {
+  height: 80px;
+  width: 80px;
+  background: linear-gradient(var(--white) 0%, var(--darkwhite));
+  border-radius: 50%;
+  box-shadow: 0px 4px 15px var(--lightshadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-pause i {
+  font-size: 45px;
+  background: #424242;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.play-pause::before {
+  content: "";
+  position: absolute;
+  height: 43px;
+  width: 43px;
+  border-radius: inherit;
+  background: linear-gradient(#98c2d0, #5896b0);
+}  */
+
+
+
+.music-list {
+  position: absolute;
+  cursor: pointer;
+  height: 50%; /* Set height relative to the parent container */
+  width: 90%; /* Adjust width */
+  left: 50%; /* Position relative to the center */
+  top: -100%; /* Initially position above the wrapper */
+  transform: translateX(-50%); /* Center the element horizontally */
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.14s ease-out;
+  backdrop-filter: blur(20px); /* Apply blur effect to the background */
+
+
+}
+
 
 /* Use this class to show the music list */
 /* Toggle .show when users click on the icon */
-.music-list.show{
-    bottom: 0%;
-    opacity: 1;
-    pointer-events: auto;
-    cursor: pointer
+.music-list.show {
+  top: 5%; /* Adjust the top position for visibility */
+  opacity: 1;
+  pointer-events: auto;
 }
+
+.music-list .header .row {
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: var(--gray);
+}
+
+
+.header{
+  backdrop-filter: blur(20px); /* Apply blur effect to the background */
+}
+
+.header .row i {
+  cursor: default;
+}
+
+.header .row span {
+  margin-left: 5px;
+}
+
+.header #close {
+  font-size: 22px;
+  color: var(--gray);
+}
+
+.music-list ul {
+  margin: 10px 0;
+  max-height: 80%;
+  padding: 10px;
+  overflow-y: auto;
+ 
+
+}
+
+/* Hide the scrollbar */
+.music-list ul::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+
+
+.music-list ul li {
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  color: var(--gray);
+  opacity: 1;
+}
+
+/* .music-list ul li:last-child {
+  border-bottom: 0px;
+} */
+
+.music-list ul li .row span {
+  font-size: 17px;
+}
+
+ul li .row p {
+  opacity: 0.9;
+}
+
+ul li .audio-duration {
+  font-size: 16px;
+}
+
+/* Box of the song playing */
+ul li.playing {
+padding: 10px;
+  pointer-events: none;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background-color: #616161;
+}
+
+footer {
+  margin-bottom: 30px;
+  color: var(--gray);
+}
+
+
+
+
+
+
+/* For small screens (phones) - sm  */
+@media only screen and (min-width:640px) {
+  .wrapper {
+    height: 80vh; /* Adjust height to fit content */
+    padding: 20px 10px; /* Adjust horizontal padding */
+  }
+
+  .img-area img {
+    height: auto;
+    max-width: 100%; /* Make image responsive */
   
-.music-list .header .row{
-    display:flex;
+  }
+  
+  .play-pause i {
+    font-size: 30px; /* Decrease play/pause icon size */
+  }
+
+  .music-list {
+    height: auto; /* Set height to auto for smaller screens */
+    width: 100%; /* Adjust width to fit the screen */
+    top: 0; /* Adjust top position */
+    padding: 10px;
+  }
+}
+
+/* For medium screens (phones) - md */
+@media only screen and (min-width: 640px){
+  .wrapper {
+    width: 100vw; 
+    height: 90vh; /* Set height */
+    max-width: 1280px; /* Set maximum width */
+    margin: 10px auto; /* Center the wrapper */
+    padding: 0 20px; /* Add horizontal padding */
+    position: relative; /* Ensure position relative for absolute positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    /* background: gray; */
+  }
+
+  .img-area img {
+    height: 320px;
+    width: 320px;
+    object-fit: cover;
     align-items: center;
-    font-size:19px;
-    color:var(--lightblack);
-}
-
-.header .row i{
-    cursor: default;
-}
-
-.header .row span{
-    margin-left: 5px;
+    box-shadow: 0px 5px 20px var(--lightshadow);
+    border-radius: 20px;
+  
+  }
 }
 
 
-.header #close{
-    font-size: 22px;
-    color: var(--lightblack);
+/* For large screens (phones) - lg */
+@media screen and (min-width: 769px){
+  .wrapper {
+    width: 100vw; 
+    height: 90vh; /* Set height */
+    max-width: 1280px; /* Set maximum width */
+    margin: 10px auto; /* Center the wrapper */
+    padding: 0 20px; /* Add horizontal padding */
+    position: relative; /* Ensure position relative for absolute positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    /* background: gray; */
+  }
+
+  .img-area img {
+    height: 320px;
+    width: 320px;
+    object-fit: cover;
+    align-items: center;
+    box-shadow: 0px 5px 20px var(--lightshadow);
+    border-radius: 20px;
+  
+  }
 }
 
-.music-list ul{
-    margin:10px 0;
-    max-height: 260px;
-    overflow-y: auto;
+/* For extra screens (phones) - xl */
+@media screen and (min-width: 1280px){
+  .wrapper {
+    width: 100vw; 
+    height: 90vh; /* Set height */
+    max-width: 1280px; /* Set maximum width */
+    margin: 10px auto; /* Center the wrapper */
+    padding: 0 20px; /* Add horizontal padding */
+    position: relative; /* Ensure position relative for absolute positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    /* background: gray; */
+  }
+
+  .img-area img {
+    height: 320px;
+    width: 320px;
+    object-fit: cover;
+    align-items: center;
+    box-shadow: 0px 5px 20px var(--lightshadow);
+    border-radius: 20px;
+  
+  }
 }
 
-.music-list ul::-webkit-scrollbar{
-    width: 0px;
-}
 
+/* For double extra screens (phones) - 2xl */
+@media screen and (min-width: 1536px){
+  .wrapper {
+    width: 100vw; 
+    height: 90vh; /* Set height */
+    max-width: 1280px; /* Set maximum width */
+    margin: 10px auto; /* Center the wrapper */
+    padding: 0 20px; /* Add horizontal padding */
+    position: relative; /* Ensure position relative for absolute positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    /* background: gray; */
+  }
 
-.music-list ul li{
-    list-style: none;
-    padding-bottom: 10px;
-    margin-bottom: 5px;
-    color: var(--lightblack);
-    border-bottom: 1px solid #f0f0f0;
-
-}
-
-.music-list ul li:last-child{
-    border-bottom: 0px;
-}
-
-.music-list ul li .row span{
-    font-size: 17px;
-}
-
-ul li .row p{
-    opacity: 0.9;
-}
-
-ul li .audio-duration{
-    font-size: 16px;
-}
-
-ul li.playing{
-color: #3e83d8;
-pointer-events: none;
+  .img-area img {
+    height: 320px;
+    width: 320px;
+    object-fit: cover;
+    align-items: center;
+    box-shadow: 0px 5px 20px var(--lightshadow);
+    border-radius: 20px;
+  
+  }
 }

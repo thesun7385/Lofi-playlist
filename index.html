@@ -21,9 +21,9 @@
     <div class="wrapper">
       <!-- Topbar -->
       <div class="top-bar">
-        <i class="material-symbols-outlined"> expand_more </i>
-        <span>Now Playing</span>
-        <i class="material-symbols-outlined"> more_horiz </i>
+        <!-- <i class="material-symbols-outlined"> expand_more </i> -->
+
+        <i id="more-music" class="material-symbols-outlined">queue_music </i>
       </div>
       <!-- Song img cover -->
       <div class="img-area">
@@ -33,47 +33,59 @@
         <p class="name"></p>
         <p class="artist"></p>
       </div>
-      <!-- Song Progress  -->
-      <div class="progress-area">
-        <div class="progress-bar"></div>
-        <div class="timer">
-          <span class="current">0:00</span>
-          <span class="duration"></span>
-        </div>
-        <!-- Import audio -->
-        <audio id="main-audio" src=""></audio>
-      </div>
-      <!-- Control panal -->
-      <div class="controls">
-        <i
-          id="repeat-plist"
-          class="material-symbols-outlined"
-          title="Playlist looped"
-        >
-          repeat
-        </i>
-        <i id="prev" class="material-symbols-outlined"> skip_previous </i>
-        <div class="play-pause">
-          <i class="material-symbols-outlined"> play_arrow </i>
-        </div>
-        <i id="next" class="material-symbols-outlined"> skip_next </i>
-        <i id="more-music" class="material-symbols-outlined">queue_music </i>
-      </div>
-
-      <!-- Music class goes here -->
-      <div class="music-list">
-        <div class="header">
-          <div class="row">
-            <i class="material-symbols-outlined"> queue_music </i>
-            <span>Music list</span>
+      <div class="container">
+        <!-- Song Progress  -->
+        <div class="progress-area">
+          <div class="progress-bar"></div>
+          <div class="timer">
+            <span class="current">0:00</span>
+            <span class="duration"></span>
           </div>
-          <i id="close" class="material-symbols-outlined"> close </i>
+          <!-- Import audio -->
+          <audio id="main-audio" src=""></audio>
         </div>
-        <ul>
-          <!-- Music list goes here -->
-        </ul>
+        <!-- Control panal -->
+        <div class="controls">
+          <i
+            id="repeat-plist"
+            class="material-symbols-outlined"
+            title="Playlist looped"
+          >
+            repeat
+          </i>
+
+          <!-- Previous button -->
+
+          <i id="prev" class="material-symbols-outlined"> skip_previous </i>
+          <!-- Play button -->
+          <div class="play-pause">
+            <i class="material-symbols-outlined"> play_arrow </i>
+          </div>
+
+          <!-- Skip button -->
+          <i id="next" class="material-symbols-outlined"> skip_next </i>
+          <!-- favorite button -->
+          <i id="favorite" class="material-symbols-outlined"> favorite </i>
+        </div>
+
+        <!-- Music class goes here -->
+        <div class="music-list">
+          <div class="header">
+            <div class="row">
+              <span>Playlist</span>
+            </div>
+            <i id="close" class="material-symbols-outlined"> close </i>
+          </div>
+          <ul>
+            <!-- Music list goes here -->
+          </ul>
+        </div>
       </div>
     </div>
+
+    <footer>
+      <p>COPYRIGHT ©2024 BY SUPACHAI RUKNUY</p>
+    </footer>
 
     <script src="js/music-list.js"></script>
     <script src="js/script.js"></script>
