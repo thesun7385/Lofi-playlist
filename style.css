@@ -293,14 +293,14 @@ Old play button effect */
   transform: translateX(-50%); /* Center the element horizontally */
   pointer-events: none;
   opacity: 0;
-  border-radius: 15px;
+  border-radius: 8px;
   padding: 15px;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.14s ease-out;
-  backdrop-filter: blur(20px); /* Apply blur effect to the background */
-
+  background: rgba(0, 0, 0, 0.5);
 
 }
+
 
 
 /* Use this class to show the music list */
@@ -320,7 +320,7 @@ Old play button effect */
 
 
 .header{
-  backdrop-filter: blur(20px); /* Apply blur effect to the background */
+  padding-top:10px ;
 }
 
 .header .row i {
@@ -416,10 +416,25 @@ footer {
     top: 0; /* Adjust top position */
     padding: 10px;
   }
+
+  .music-list ul li .audio-duration {
+    font-size: 16px;
+    visibility: visible; /* Ensure the duration is visible */
+  }
+  
+  /* Adjust padding and margin as needed */
+  .music-list ul li .row {
+    padding: 5px 0;
+  }
+  
+  .music-list ul li .row span,
+  .music-list ul li .row p {
+    margin: 0;
+  }
 }
 
 /* For medium screens (phones) - md */
-@media only screen and (min-width: 640px){
+@media only screen and (min-width: 641px){
   .wrapper {
     width: 100vw; 
     height: 90vh; /* Set height */
@@ -432,6 +447,11 @@ footer {
     justify-content: space-between;  
     /* background: gray; */
   }
+
+  .play-pause i {
+    font-size: 50px; /* Decrease play/pause icon size */
+  }
+  
 
   .img-area img {
     height: 320px;
@@ -459,6 +479,10 @@ footer {
     justify-content: space-between;  
     /* background: gray; */
   }
+  .play-pause i {
+    font-size: 50px; /* Decrease play/pause icon size */
+  }
+  
 
   .img-area img {
     height: 320px;
@@ -485,6 +509,10 @@ footer {
     justify-content: space-between;  
     /* background: gray; */
   }
+  .play-pause i {
+    font-size: 50px; /* Decrease play/pause icon size */
+  }
+  
 
   .img-area img {
     height: 320px;
@@ -513,6 +541,10 @@ footer {
     /* background: gray; */
   }
 
+  .play-pause i {
+    font-size: 50px; /* Decrease play/pause icon size */
+  }
+  
   .img-area img {
     height: 320px;
     width: 320px;
